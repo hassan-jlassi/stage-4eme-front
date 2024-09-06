@@ -1,0 +1,104 @@
+// Variables pour les couleurs et la typographie
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+$card-bg: #fff;
+$card-border: #dee2e6;
+$alert-error-bg: #f8d7da;
+$alert-error-border: #f5c6cb;
+$alert-error-text: #721c24;
+
+// Styles globaux pour le corps
+body {
+  background-color: $background-color;
+}
+
+// Styles pour le conteneur principal
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// Styles pour le titre
+h2 {
+  font-size: 1.75rem;
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+// Styles pour le formulaire
+.form-container {
+  background-color: $card-bg;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: $secondary-color;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid $card-border;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: $primary-color;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+
+    .alert {
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.25rem;
+      border: 1px solid transparent;
+      background-color: $alert-error-bg;
+      color: $alert-error-text;
+      font-size: 0.875rem;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: $primary-color;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  .btn-reset {
+    background-color: $secondary-color;
+    margin-left: 0.5rem;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}

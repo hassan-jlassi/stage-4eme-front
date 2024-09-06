@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h2>Service après vente</h2>
+
+  <button class="btn btn-primary btn-add-sav" [routerLink]="['/component/addsav']"> + </button>
+</div>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Numéro de Série</th>
+      <th>IMEI</th>
+      <th>Date de Réception</th>
+      <th>Catégorie</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let sav of savs">
+      <td>{{ sav.numSerie }}</td>
+      <td>{{ sav.IMEI }}</td>
+      <td>{{ sav.dateReception | date }}</td>
+      <td>{{ sav.categorie }}</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-update" [routerLink]="['/component/updatesav', sav.idProduit]">Update</button>
+          <button class="btn btn-delete" (click)="deleteSav(sav.idProduit!)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<h2 class="center">Ajouter un SAV</h2>
+<br>
+<br>
+<form [formGroup]="addSavForm" (ngSubmit)="addSav()" class="form-container">
+  <div class="form-group">
+    <label>Numéro de Série:</label>
+    <input type="text" class="form-control" formControlName="numSerie">
+    <div *ngIf="addSavForm.controls['numSerie'].invalid && addSavForm.controls['numSerie'].touched" class="alert alert-danger">
+      <p *ngIf="addSavForm.controls['numSerie'].hasError('required')">Numéro de série requis</p>
+      <p *ngIf="addSavForm.controls['numSerie'].hasError('minlength')">Numéro de série doit contenir au moins 3 caractères</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>IMEI:</label>
+    <input type="text" class="form-control" formControlName="IMEI">
+    <div *ngIf="addSavForm.controls['IMEI'].invalid && addSavForm.controls['IMEI'].touched" class="alert alert-danger">
+      <p *ngIf="addSavForm.controls['IMEI'].hasError('required')">IMEI requis</p>
+      <p *ngIf="addSavForm.controls['IMEI'].hasError('pattern')">IMEI doit être composé de 15 chiffres</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date de Réception:</label>
+    <input type="date" class="form-control" formControlName="dateReception">
+    <div *ngIf="addSavForm.controls['dateReception'].invalid && addSavForm.controls['dateReception'].touched" class="alert alert-danger">
+      <p *ngIf="addSavForm.controls['dateReception'].hasError('required')">Date de réception requise</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Catégorie:</label>
+    <input type="text" class="form-control" formControlName="categorie">
+    <div *ngIf="addSavForm.controls['categorie'].invalid && addSavForm.controls['categorie'].touched" class="alert alert-danger">
+      <p *ngIf="addSavForm.controls['categorie'].hasError('required')">Catégorie requise</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary center">Ajouter SAV</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>

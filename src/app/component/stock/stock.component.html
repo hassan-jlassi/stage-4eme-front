@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Stocks</h2>
+  <!-- Pro Button to navigate to the addstock page -->
+  <button class="btn btn-primary btn-add-stock" [routerLink]="['/component/addstock']"> + </button>
+</div>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Numéro de Série</th>
+      <th>IMEI</th>
+      <th>Date de Production</th>
+      <th>Catégorie</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let stock of stocks">
+      <td>{{ stock.numSerie }}</td>
+      <td>{{ stock.IMEI }}</td>
+      <td>{{ stock.dateProduction | date }}</td>
+      <td>{{ stock.categorie }}</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-update" [routerLink]="['/component/updatestock', stock.idProduit]">Update</button>
+          <button class="btn btn-delete" (click)="deleteStock(stock.idProduit!)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

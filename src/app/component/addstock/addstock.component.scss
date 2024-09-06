@@ -1,0 +1,97 @@
+/* Base styles for the form container */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2.center {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.form-control:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+.alert.alert-danger {
+  margin-top: 0.5rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+}
+
+.alert.alert-danger p {
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

@@ -1,0 +1,95 @@
+// Variables for customization
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$danger-color: #dc3545;
+$border-radius: 0.25rem;
+$padding: 1rem;
+$font-family: 'Arial', sans-serif;
+$input-border-color: #ced4da;
+$input-focus-color: $primary-color;
+$invalid-feedback-color: $danger-color;
+
+// Global styles
+body {
+  font-family: $font-family;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Form styles
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: $padding;
+  background-color: #fff;
+  border-radius: $border-radius;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    input.form-control {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid $input-border-color;
+      border-radius: $border-radius;
+      transition: border-color 0.3s ease-in-out;
+
+      &:focus {
+        border-color: $input-focus-color;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba($input-focus-color, 0.25);
+      }
+
+      &.ng-invalid.ng-touched {
+        border-color: $invalid-feedback-color;
+      }
+    }
+
+    .invalid-feedback {
+      color: $invalid-feedback-color;
+      font-size: 0.875rem;
+      display: block;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+// Button styles
+button.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+
+  &.btn-primary {
+    background-color: $primary-color;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $secondary-color;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}

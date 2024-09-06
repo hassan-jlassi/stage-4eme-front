@@ -1,0 +1,40 @@
+<h2 class="center">Ajouter un Stock</h2>
+<br>
+<br>
+<form [formGroup]="addStockForm" (ngSubmit)="addStock()" class="form-container">
+  <div class="form-group">
+    <label>Numéro de Série:</label>
+    <input type="text" class="form-control" formControlName="numSerie">
+    <div *ngIf="addStockForm.controls['numSerie'].invalid && addStockForm.controls['numSerie'].touched" class="alert alert-danger">
+      <p *ngIf="addStockForm.controls['numSerie'].hasError('required')">Numéro de série requis</p>
+      <p *ngIf="addStockForm.controls['numSerie'].hasError('minlength')">Numéro de série doit contenir au moins 3 caractères</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>IMEI:</label>
+    <input type="text" class="form-control" formControlName="IMEI">
+    <div *ngIf="addStockForm.controls['IMEI'].invalid && addStockForm.controls['IMEI'].touched" class="alert alert-danger">
+      <p *ngIf="addStockForm.controls['IMEI'].hasError('required')">IMEI requis</p>
+      <p *ngIf="addStockForm.controls['IMEI'].hasError('pattern')">IMEI doit être composé de 15 chiffres</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date de Production:</label>
+    <input type="date" class="form-control" formControlName="dateProduction">
+    <div *ngIf="addStockForm.controls['dateProduction'].invalid && addStockForm.controls['dateProduction'].touched" class="alert alert-danger">
+      <p *ngIf="addStockForm.controls['dateProduction'].hasError('required')">Date de production requise</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Catégorie:</label>
+    <input type="text" class="form-control" formControlName="categorie">
+    <div *ngIf="addStockForm.controls['categorie'].invalid && addStockForm.controls['categorie'].touched" class="alert alert-danger">
+      <p *ngIf="addStockForm.controls['categorie'].hasError('required')">Catégorie requise</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary center">Ajouter Stock</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>

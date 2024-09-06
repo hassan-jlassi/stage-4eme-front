@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="center">Mettre à jour un SAV</h2>
+  <br>
+  <form [formGroup]="updateSavForm" (ngSubmit)="updateSav()" class="form-container">
+    <div class="form-group">
+      <label>Numéro de Série:</label>
+      <input type="text" class="form-control" formControlName="numSerie">
+      <div *ngIf="updateSavForm.controls['numSerie'].invalid && updateSavForm.controls['numSerie'].touched" class="alert alert-danger">
+        <p *ngIf="updateSavForm.controls['numSerie'].hasError('required')">Numéro de Série requis</p>
+        <p *ngIf="updateSavForm.controls['numSerie'].hasError('minlength')">Numéro de Série doit contenir au moins 3 caractères</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>IMEI:</label>
+      <input type="text" class="form-control" formControlName="IMEI">
+      <div *ngIf="updateSavForm.controls['IMEI'].invalid && updateSavForm.controls['IMEI'].touched" class="alert alert-danger">
+        <p *ngIf="updateSavForm.controls['IMEI'].hasError('required')">IMEI requis</p>
+        <p *ngIf="updateSavForm.controls['IMEI'].hasError('pattern')">IMEI doit être un nombre</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Date de Réception:</label>
+      <input type="date" class="form-control" formControlName="dateReception">
+      <div *ngIf="updateSavForm.controls['dateReception'].invalid && updateSavForm.controls['dateReception'].touched" class="alert alert-danger">
+        <p *ngIf="updateSavForm.controls['dateReception'].hasError('required')">Date de Réception requise</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Catégorie:</label>
+      <input type="text" class="form-control" formControlName="categorie">
+      <div *ngIf="updateSavForm.controls['categorie'].invalid && updateSavForm.controls['categorie'].touched" class="alert alert-danger">
+        <p *ngIf="updateSavForm.controls['categorie'].hasError('required')">Catégorie requise</p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary center" [disabled]="updateSavForm.invalid">Mettre à jour SAV</button>
+    <button type="button" class="btn btn-secondary center" (click)="resetForm()">Réinitialiser</button>
+  </form>
+</div>

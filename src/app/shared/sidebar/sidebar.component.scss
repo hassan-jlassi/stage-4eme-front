@@ -1,0 +1,106 @@
+// Variables for customization
+$sidebar-bg: #2f3d4a;
+$sidebar-item-bg: #1e2a38;
+$sidebar-item-active-bg: #1a2631;
+$sidebar-item-hover-bg: #37474f;
+$sidebar-text-color: #ffffff;
+$sidebar-icon-color: #b0bec5;
+$upgrade-btn-bg: #e53935;
+$upgrade-btn-text-color: #ffffff;
+$font-family: 'Arial, sans-serif';
+$padding: 16px;
+$border-radius: 4px;
+$transition-duration: 0.3s;
+
+// Sidebar container
+.sidebar-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px; // Adjust as needed
+  background-color: $sidebar-bg;
+  color: $sidebar-text-color;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: width $transition-duration ease-in-out;
+
+  .nav-small-cap {
+    padding: $padding;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $sidebar-text-color;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: $padding;
+    color: $sidebar-text-color;
+    text-decoration: none;
+    transition: background-color $transition-duration ease-in-out;
+
+    &:hover {
+      background-color: $sidebar-item-hover-bg;
+    }
+
+    i {
+      color: $sidebar-icon-color;
+      margin-right: $padding / 2;
+    }
+
+    .hide-menu {
+      font-size: 0.875rem;
+      font-weight: normal;
+    }
+  }
+
+  .sidebar-item {
+    position: relative;
+
+    &.active {
+      background-color: $sidebar-item-active-bg;
+    }
+
+    &.active .sidebar-link {
+      background-color: $sidebar-item-active-bg;
+    }
+
+    &.active .sidebar-link i {
+      color: $sidebar-text-color;
+    }
+  }
+
+  .upgrade-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: $padding;
+    background-color: $sidebar-bg;
+    border-top: 1px solid #1a2631;
+
+    .btn {
+      background-color: $upgrade-btn-bg;
+      color: $upgrade-btn-text-color;
+      border: none;
+      padding: $padding;
+      border-radius: $border-radius;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color $transition-duration ease-in-out;
+
+      &:hover {
+        background-color: darken($upgrade-btn-bg, 10%);
+      }
+    }
+  }
+}
+
+// Mobile and tablet view adjustments (Optional)
+@media (max-width: 768px) {
+  .sidebar-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}

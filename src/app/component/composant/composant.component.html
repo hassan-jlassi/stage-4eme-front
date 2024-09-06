@@ -1,0 +1,33 @@
+
+
+<div class="container">
+
+
+  <h2>Composants</h2>
+  <!-- Pro Button to navigate to the addcomposant page -->
+  <button class="btn btn-primary btn-add-composant" [routerLink]="['/component/addcomposant']"> + </button>
+</div>
+<div>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Quantité</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let composant of composants">
+      <td>{{ composant.nomC }}</td>
+      <td>{{ composant.quantite }}</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-update" [routerLink]="['/component/updatecomposant', composant?.idComposant]">Update</button>
+          <button class="btn btn-backoffice-delete" (click)="deleteComposant(composant.idComposant)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

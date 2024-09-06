@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Update Composant</h2>
+  <form [formGroup]="composantForm" (ngSubmit)="updateComposant()">
+    <div class="form-group">
+      <label>Nom Composant</label>
+      <input type="text" formControlName="nomC" class="form-control" placeholder="Nom Composant">
+      <div *ngIf="composantForm.controls['nomC'].invalid && composantForm.controls['nomC'].touched" class="alert alert-danger">
+        <p *ngIf="composantForm.controls['nomC'].hasError('required')">Nom requis</p>
+        <p *ngIf="composantForm.controls['nomC'].hasError('minlength')">Le nom doit contenir au moins 3 caractères</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Quantité</label>
+      <input type="number" formControlName="quantite" class="form-control" placeholder="Quantité">
+      <div *ngIf="composantForm.controls['quantite'].invalid && composantForm.controls['quantite'].touched" class="alert alert-danger">
+        <p *ngIf="composantForm.controls['quantite'].hasError('required')">Quantité requise</p>
+        <p *ngIf="composantForm.controls['quantite'].hasError('invalidQuantity')">Quantité invalide</p>
+      </div>
+    </div>
+    <button type="submit" [disabled]="composantForm.invalid" class="btn btn-primary">Update Composant</button>
+  </form>
+</div>

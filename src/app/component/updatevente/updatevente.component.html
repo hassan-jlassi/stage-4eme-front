@@ -1,0 +1,39 @@
+<h2 class="center">Modifier la Vente</h2>
+<br>
+<form [formGroup]="updateVenteForm" (ngSubmit)="updateVente()" class="form-container">
+  <div class="form-group">
+    <label>Date de Vente:</label>
+    <input type="date" class="form-control" formControlName="dateVente">
+    <div *ngIf="updateVenteForm.controls['dateVente'].invalid && updateVenteForm.controls['dateVente'].touched" class="alert alert-danger">
+      <p *ngIf="updateVenteForm.controls['dateVente'].hasError('required')">Date de vente requise</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Montant Total:</label>
+    <input type="number" class="form-control" formControlName="montantTotal">
+    <div *ngIf="updateVenteForm.controls['montantTotal'].invalid && updateVenteForm.controls['montantTotal'].touched" class="alert alert-danger">
+      <p *ngIf="updateVenteForm.controls['montantTotal'].hasError('required')">Montant total requis</p>
+      <p *ngIf="updateVenteForm.controls['montantTotal'].hasError('min')">Le montant total doit être supérieur à 0</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Produit:</label>
+    <input type="text" class="form-control" formControlName="produit">
+    <div *ngIf="updateVenteForm.controls['produit'].invalid && updateVenteForm.controls['produit'].touched" class="alert alert-danger">
+      <p *ngIf="updateVenteForm.controls['produit'].hasError('required')">Produit requis</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Client:</label>
+    <input type="text" class="form-control" formControlName="client">
+    <div *ngIf="updateVenteForm.controls['client'].invalid && updateVenteForm.controls['client'].touched" class="alert alert-danger">
+      <p *ngIf="updateVenteForm.controls['client'].hasError('required')">Client requis</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary center">Mettre à Jour Vente</button>
+  <button type="button" class="btn btn-secondary center" (click)="reset()">Réinitialiser</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>

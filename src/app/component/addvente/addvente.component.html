@@ -1,0 +1,38 @@
+<h2 class="center">Ajouter une Vente</h2>
+<br>
+<form [formGroup]="addVenteForm" (ngSubmit)="addVente()" class="form-container">
+  <div class="form-group">
+    <label>Date de Vente:</label>
+    <input type="date" class="form-control" formControlName="dateVente">
+    <div *ngIf="addVenteForm.controls['dateVente'].invalid && addVenteForm.controls['dateVente'].touched" class="alert alert-danger">
+      <p *ngIf="addVenteForm.controls['dateVente'].hasError('required')">Date de vente requise</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Montant Total:</label>
+    <input type="number" class="form-control" formControlName="montantTotal">
+    <div *ngIf="addVenteForm.controls['montantTotal'].invalid && addVenteForm.controls['montantTotal'].touched" class="alert alert-danger">
+      <p *ngIf="addVenteForm.controls['montantTotal'].hasError('required')">Montant total requis</p>
+      <p *ngIf="addVenteForm.controls['montantTotal'].hasError('min')">Le montant total doit être supérieur à 0</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Produit:</label>
+    <input type="text" class="form-control" formControlName="produit">
+    <div *ngIf="addVenteForm.controls['produit'].invalid && addVenteForm.controls['produit'].touched" class="alert alert-danger">
+      <p *ngIf="addVenteForm.controls['produit'].hasError('required')">Produit requis</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Client:</label>
+    <input type="text" class="form-control" formControlName="client">
+    <div *ngIf="addVenteForm.controls['client'].invalid && addVenteForm.controls['client'].touched" class="alert alert-danger">
+      <p *ngIf="addVenteForm.controls['client'].hasError('required')">Client requis</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary center">Ajouter Vente</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>

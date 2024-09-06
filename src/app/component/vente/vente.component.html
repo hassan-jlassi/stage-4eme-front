@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Ventes</h2>
+  <!-- Add Button to navigate to the addvente page -->
+  <button class="btn btn-primary btn-add-vente" [routerLink]="['/component/addvente']"> + </button>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Date de Vente</th>
+      <th>Montant Total</th>
+      <th>Produit</th>
+      <th>Client</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vente of ventes">
+      <td>{{ vente.dateVente | date }}</td>
+      <td>{{ vente.montantTotal | currency }}</td>
+      <td>{{ vente.produit }}</td>
+      <td>{{ vente.client }}</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-update" [routerLink]="['/component/updatevente', vente.idVente]">Update</button>
+          <button class="btn btn-delete" (click)="deleteVente(vente.idVente!)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

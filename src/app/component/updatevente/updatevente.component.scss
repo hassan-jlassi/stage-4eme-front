@@ -1,0 +1,92 @@
+// Variables for customization
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$danger-color: #e74c3c;
+$hover-color: darken($primary-color, 10%);
+$font-color: #333;
+$font-family: 'Arial, sans-serif';
+$padding: 16px;
+$border-radius: 4px;
+
+// Container styling
+h2.center {
+  text-align: center;
+  color: $primary-color;
+  font-family: $font-family;
+  margin-bottom: $padding;
+}
+
+// Form container styling
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $padding;
+  background-color: #f9f9f9;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    margin-bottom: $padding;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: $font-color;
+      font-family: $font-family;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: $border-radius;
+      font-family: $font-family;
+      box-sizing: border-box;
+    }
+
+    .alert {
+      margin-top: 8px;
+      padding: 8px;
+      border-radius: $border-radius;
+      font-family: $font-family;
+      color: #fff;
+
+      &.alert-danger {
+        background-color: $danger-color;
+      }
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-family: $font-family;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+
+    &.btn-primary {
+      background-color: $primary-color;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+
+    &.btn-secondary {
+      background-color: $secondary-color;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+
+    &.center {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
