@@ -18,7 +18,7 @@ export class AddsavComponent implements OnInit {
   ) {
     this.addSavForm = this.fb.group({
       numSerie: ['', [Validators.required, Validators.minLength(3)]],
-      IMEI: ['', [Validators.required, Validators.pattern('^[0-9]{15}$')]], // Example for 15 digits IMEI
+      imei: ['', [Validators.required, Validators.pattern('^[0-9]{15}$')]], // Example for 15 digits IMEI
       dateReception: ['', Validators.required],
       categorie: ['', Validators.required]
     });

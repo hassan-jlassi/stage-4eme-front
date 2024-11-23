@@ -3,47 +3,58 @@ $primary-color: #007bff;
 $secondary-color: #6c757d;
 $danger-color: #dc3545;
 $border-radius: 0.25rem;
-$padding: 1rem;
+$padding: 1.5rem; // Augmenter le padding global du formulaire
 $font-family: 'Arial', sans-serif;
 $input-border-color: #ced4da;
 $input-focus-color: $primary-color;
 $invalid-feedback-color: $danger-color;
-$background-color: #f8f9fa;
+
+// Background for the inscription page
+.inscription-page {
+  background-color: #e8a85f; // Choisir une nouvelle couleur de fond pour la page d'inscription
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 // Global styles
 body {
   font-family: $font-family;
-  background-color: $background-color;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #000; // Définir la couleur du texte globale en noir
 }
 
 // Form styles
 form {
-  max-width: 500px;
+  max-width: 500px; // Augmenter la largeur maximale du formulaire
   margin: 2rem auto;
   padding: $padding;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.22);
   border-radius: $border-radius;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 
   .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; // Augmenter l'espacement entre les groupes de formulaires
 
     label {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem; // Augmenter l'espacement sous les labels
       display: block;
+      font-size: 1.0rem; // Augmenter la taille de la police des labels
+      color: #000; // Couleur du texte des labels en noir
     }
 
     input.form-control {
       width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
+      padding: 0.5rem; // Augmenter le padding des champs de saisie
+      font-size: 1.2rem; // Augmenter la taille de la police des champs de saisie
       border: 1px solid $input-border-color;
       border-radius: $border-radius;
       transition: border-color 0.3s ease-in-out;
+      color: #000; // Couleur du texte des champs de saisie en noir
 
       &:focus {
         border-color: $input-focus-color;
@@ -58,7 +69,7 @@ form {
 
     .invalid-feedback {
       color: $invalid-feedback-color;
-      font-size: 0.875rem;
+      font-size: 1rem; // Augmenter la taille de la police des messages d'erreur
       display: block;
       margin-top: 0.5rem;
     }
@@ -67,11 +78,11 @@ form {
 
 // Button styles
 button.btn {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.5rem; // Augmenter le padding des boutons
+  font-size: 1.2rem; // Augmenter la taille de la police des boutons
   border-radius: $border-radius;
   transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-  margin-right: 0.5rem;
+  color: #000; // Couleur du texte des boutons en noir
 
   &.btn-primary {
     background-color: $primary-color;
@@ -94,4 +105,33 @@ button.btn {
       transform: translateY(-2px);
     }
   }
+}
+
+.inscription-container {
+  position: relative;
+  width: 100%;
+}
+
+.circle {
+  width: 8rem;
+  height: 8rem;
+  background: $primary-color;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.circle-one {
+  top: 0;
+  left: 0;
+  transform: translate(-45%, -45%);
+}
+
+.circle-two {
+  bottom: 0;
+  right: 0;
+  transform: translate(45%, 45%);
+}
+
+.opacity {
+  opacity: 0.6;
 }

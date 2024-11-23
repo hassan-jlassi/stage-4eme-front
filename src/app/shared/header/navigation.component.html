@@ -1,0 +1,9 @@
+<!-- L'en-tête ne sera affiché que si on n'est pas sur la page /login -->
+<div class="header">
+<nav *ngIf="!isLoginPage" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="logo">
+    <!-- Ton logo ou texte pour le header -->
+    <span>Accent Application</span>
+  </div>
+</nav>
+</div>

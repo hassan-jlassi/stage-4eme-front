@@ -1,0 +1,32 @@
+// Variables pour la personnalisation
+$header-bg-color: #343a40; // Couleur de fond du header
+$header-text-color: #ffffff; // Couleur du texte
+$accent-color: #ff5733; // Couleur d'accent pour l'effet de survol
+$font-family: 'Roboto', sans-serif; // Police de caractères
+
+// Style pour le header
+nav.navbar {
+  background-color: $header-bg-color;  // Couleur de fond du navbar
+  padding: 10px 20px;  // Espacement du navbar
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-family: $font-family;
+    font-size: 24px; // Taille du texte
+    font-weight: 700; // Poids de la police pour un effet plus prononcé
+    color: $header-text-color; // Couleur du texte par défaut
+
+    // Effet de survol
+    &:hover {
+      color: $accent-color;  // Couleur d'accent quand on survole
+      cursor: pointer;
+      transition: color 0.3s ease; // Animation fluide pour le survol
+    }
+  }
+
+  // Si tu veux ajouter un padding ou des marges autour du texte du logo
+  .logo span {
+    padding-left: 10px;
+  }
+}

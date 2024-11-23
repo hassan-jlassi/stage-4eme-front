@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { InscriptionComponent } from './inscription/inscription.component';
+import { LoginComponent } from './login/login.component';
 import { FullComponent } from './layouts/full/full.component';
-import {InscriptionComponent} from "./inscription/inscription.component";
-import {LoginComponent} from "./login/login.component";
 
 export const Approutes: Routes = [
   {
     path: '',
-    component: FullComponent,
+    redirectTo: '/login', // Redirect to /login by default
+    pathMatch: 'full'      // Ensure it only matches the empty path
+  },
+  {
+    path: '', // Root path
+    component: FullComponent, // Full layout that contains child routes
     children: [
-      { path: '', redirectTo: '/login', pathMatch: 'full' },
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
-        path: 'inscription',
-        component: InscriptionComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
       },
       {
         path: 'about',
@@ -34,7 +30,21 @@ export const Approutes: Routes = [
     ]
   },
   {
-    path: '**',
-    redirectTo: '/starter'
+    path: 'login', // Login page route
+    component: LoginComponent
+  },
+  {
+    path: 'inscription', // Inscription page route
+    component: InscriptionComponent
+  },
+  {
+    path: '**', // Wildcard route, redirect to '/login' if route not found
+    redirectTo: '/login'
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(Approutes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

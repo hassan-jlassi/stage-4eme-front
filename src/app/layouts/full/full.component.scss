@@ -2,3 +2,18 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+/* Cibler le footer pour modifier la couleur d'arrière-plan */
+footer {
+  background-color: #f2f4f6;  // Remplacez par la couleur de votre choix
+  color: #f60f0f;  // Couleur du texte à l'intérieur du footer (blanc ici)
+  padding: 80px;  // Espacement interne
+  text-align: center;  // Centrer le texte
+}
+
+/* Si le footer est dans un div avec une classe spécifique */
+footer.custom-footer {
+  background-color: #444444;  // Couleur personnalisée pour le footer
+  color: #ffffff;  // Texte en blanc
+  padding: 15px;
+  text-align: center;
+}

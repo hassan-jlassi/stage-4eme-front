@@ -21,7 +21,7 @@ export class UpdatestockComponent implements OnInit {
   ) {
     this.updateStockForm = this.fb.group({
       numSerie: ['', [Validators.required, Validators.minLength(3)]],
-      IMEI: ['', [Validators.required, Validators.pattern('^[0-9]{15}$')]],
+      imei: ['', [Validators.required, Validators.pattern('^[0-9]{15}$')]],
       dateProduction: ['', Validators.required],
       categorie: ['', Validators.required]
     });

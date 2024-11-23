@@ -10,6 +10,7 @@ import { SavService } from '../../_services/sav.service'; // Assurez-vous que le
 })
 export class SavComponent implements OnInit {
   savs: Sav[] = [];
+  totalSavCount: number = 0;  // Variable pour stocker le nombre total de SAVs
 
   constructor(private savService: SavService, private router: Router) { }
 
@@ -22,6 +23,7 @@ export class SavComponent implements OnInit {
       savs => {
         console.log('SAVs loaded:', savs); // Vérifiez les données ici
         this.savs = savs;
+        this.totalSavCount = this.savs.length; // Calcul du nombre total d'éléments
       },
       error => {
         console.error('Error loading SAVs:', error);
@@ -38,6 +40,7 @@ export class SavComponent implements OnInit {
       this.savService.deleteSav(id).subscribe(
         () => {
           this.savs = this.savs.filter(sav => sav.idProduit !== id);
+          this.totalSavCount = this.savs.length; // Mise à jour du nombre après suppression
         },
         error => {
           console.error('Error deleting SAV:', error);
@@ -50,6 +53,7 @@ export class SavComponent implements OnInit {
     this.savService.createSav(newSav).subscribe(
       createdSav => {
         this.savs.push(createdSav);
+        this.totalSavCount = this.savs.length; // Mise à jour du nombre après ajout
       },
       error => {
         console.error('Error creating SAV:', error);

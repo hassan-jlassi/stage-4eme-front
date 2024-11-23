@@ -1,54 +1,64 @@
-<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="nomUser">Nom</label>
-    <input id="nomUser" formControlName="nomUser" class="form-control" />
-    <div *ngIf="inscriptionForm.get('nomUser')?.invalid && inscriptionForm.get('nomUser')?.touched" class="invalid-feedback">
-      Nom is required.
+<div class="inscription-page">
+  <section class="container">
+    <div class="inscription-container">
+      <div class="circle circle-one"></div>
+      <div class="form-container">
+        <h1 class="opacity">REGISTER</h1>
+        <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nomUser">Nom</label>
+            <input id="nomUser" formControlName="nomUser" class="form-control" />
+            <div *ngIf="inscriptionForm.get('nomUser')?.invalid && inscriptionForm.get('nomUser')?.touched" class="invalid-feedback">
+              Nom is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="prenomUser">Prénom</label>
+            <input id="prenomUser" formControlName="prenomUser" class="form-control" />
+            <div *ngIf="inscriptionForm.get('prenomUser')?.invalid && inscriptionForm.get('prenomUser')?.touched" class="invalid-feedback">
+              Prénom is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailUser">Email</label>
+            <input id="emailUser" formControlName="emailUser" type="email" class="form-control" />
+            <div *ngIf="inscriptionForm.get('emailUser')?.invalid && inscriptionForm.get('emailUser')?.touched" class="invalid-feedback">
+              A valid email is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="passwordUser">Password</label>
+            <input id="passwordUser" formControlName="passwordUser" type="password" class="form-control" />
+            <div *ngIf="inscriptionForm.get('passwordUser')?.invalid && inscriptionForm.get('passwordUser')?.touched" class="invalid-feedback">
+              Password is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input id="role" formControlName="role" class="form-control" />
+            <div *ngIf="inscriptionForm.get('role')?.invalid && inscriptionForm.get('role')?.touched" class="invalid-feedback">
+              Role is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="departement">Département</label>
+            <input id="departement" formControlName="departement" class="form-control" />
+            <div *ngIf="inscriptionForm.get('departement')?.invalid && inscriptionForm.get('departement')?.touched" class="invalid-feedback">
+              Département is required.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Register</button>
+
+          <button type="button" class="btn btn-secondary" (click)="navigateToLogin()">Login</button>
+        </form>
+      </div>
+      <div class="circle circle-two"></div>
     </div>
-  </div>
-
-  <div class="form-group">
-    <label for="prenomUser">Prénom</label>
-    <input id="prenomUser" formControlName="prenomUser" class="form-control" />
-    <div *ngIf="inscriptionForm.get('prenomUser')?.invalid && inscriptionForm.get('prenomUser')?.touched" class="invalid-feedback">
-      Prénom is required.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="emailUser">Email</label>
-    <input id="emailUser" formControlName="emailUser" type="email" class="form-control" />
-    <div *ngIf="inscriptionForm.get('emailUser')?.invalid && inscriptionForm.get('emailUser')?.touched" class="invalid-feedback">
-      A valid email is required.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="passwordUser">Password</label>
-    <input id="passwordUser" formControlName="passwordUser" type="password" class="form-control" />
-    <div *ngIf="inscriptionForm.get('passwordUser')?.invalid && inscriptionForm.get('passwordUser')?.touched" class="invalid-feedback">
-      Password is required.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="role">Role</label>
-    <input id="role" formControlName="role" class="form-control" />
-    <div *ngIf="inscriptionForm.get('role')?.invalid && inscriptionForm.get('role')?.touched" class="invalid-feedback">
-      Role is required.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="departement">Département</label>
-    <input id="departement" formControlName="departement" class="form-control" />
-    <div *ngIf="inscriptionForm.get('departement')?.invalid && inscriptionForm.get('departement')?.touched" class="invalid-feedback">
-      Département is required.
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Register</button>
-
-  <!-- Button to navigate to login page -->
-  <button type="button" class="btn btn-secondary" (click)="navigateToLogin()">Login</button>
-</form>
+  </section>
+</div>

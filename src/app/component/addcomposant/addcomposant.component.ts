@@ -30,7 +30,7 @@ export class AddcomposantComponent implements OnInit {
         createdComposant => {
           console.log('Composant ajouté avec succès :', createdComposant);
           this.addComposantForm.reset();
-          this.router.navigate(['/composants']); // Adjust the route if needed
+          this.router.navigate(['/component/composant']); // Adjust the route if needed
         },
         error => {
           console.error('Erreur lors de l\'ajout du composant :', error);

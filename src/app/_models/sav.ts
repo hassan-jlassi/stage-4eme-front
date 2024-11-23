@@ -2,7 +2,7 @@
 export class Sav {
   idProduit?: number;
   numSerie!: string;
-  IMEI!: string;
+  imei!: string;
   dateReception!: Date;
   categorie!: string;
 }

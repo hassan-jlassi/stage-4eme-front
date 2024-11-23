@@ -1,18 +1,11 @@
 import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
+
   {
     path: '/dashboard',
     title: 'Dashboard',
-    icon: 'bi bi-house-door',  // Icone pour le tableau de bord
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/dashboard',
-    title: 'Dashboard',
-    icon: 'bi bi-house-door',  // Icone pour le tableau de bord
+    icon: 'bi bi-house-door',
     class: '',
     extralink: false,
     submenu: []
@@ -20,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/composant',
     title: 'Composant',
-    icon: 'bi bi-tools',  // Icone pour Composant
+    icon: 'bi bi-tools',
     class: '',
     extralink: false,
     submenu: []
@@ -28,23 +21,23 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/sav',
     title: 'Service Après Vente',
-    icon: 'bi bi-telephone',  // Icone pour Service Après Vente
+    icon: 'bi bi-telephone',
     class: '',
     extralink: false,
     submenu: []
   },
   {
     path: '/component/stock',
-    title: 'Afficher le Stock',
-    icon: 'bi bi-box',  // Icone pour Stock
+    title: 'Afficher les produits',
+    icon: 'bi bi-box',
     class: '',
     extralink: false,
     submenu: []
   },
   {
     path: '/component/vente',
-    title: 'Afficher les Ventes',
-    icon: 'bi bi-cart',  // Icone pour Ventes
+    title: 'Afficher la liste des Ventes',
+    icon: 'bi bi-cart',
     class: '',
     extralink: false,
     submenu: []
@@ -52,7 +45,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/login',
     title: 'Déconnexion',
-    icon: 'bi bi-box-arrow-right',  // Icone pour Déconnexion
+    icon: 'bi bi-box-arrow-right',
     class: '',
     extralink: false,
     submenu: []

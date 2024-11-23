@@ -22,47 +22,40 @@ export class UpdatesavComponent implements OnInit {
   ) {
     this.updateSavForm = this.fb.group({
       numSerie: ['', [Validators.required, Validators.minLength(3)]],
-      IMEI: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      imei: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Consistent naming with form control
       dateReception: ['', Validators.required],
       categorie: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    // Récupérer l'ID du SAV depuis l'URL
-    this.route.params.subscribe(params => {
-      this.savId = params['id'];
-      this.loadSav(this.savId);
-    });
+    this.savId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadSav();
   }
 
-  loadSav(id: number) {
-    this.savService.getSavById(id).subscribe(
-      sav => {
-        this.sav = sav;
-        this.updateSavForm.patchValue({
-          numSerie: sav.numSerie,
-          IMEI: sav.IMEI,
-          dateReception: sav.dateReception,
-          categorie: sav.categorie
-        });
+  loadSav() {
+    this.savService.getSavById(this.savId).subscribe(
+      stock => {
+        this.updateSavForm.patchValue(stock);
       },
       error => {
-        console.error('Erreur lors du chargement du SAV :', error);
+        console.error('Error loading stock:', error);
       }
     );
   }
 
+
   updateSav() {
     if (this.updateSavForm.valid) {
       const updatedSav: Sav = {
-        idProduit: this.savId,  // Assurez-vous d'utiliser l'ID correct ici
+        idProduit: this.savId, // Ensure correct ID usage
         ...this.updateSavForm.value
       };
-      this.savService.updateSav(updatedSav,this.savId).subscribe(
+
+      this.savService.updateSav(updatedSav, this.savId).subscribe(
         () => {
-          console.log('SAV mis à jour avec succès :', updatedSav);
-          this.router.navigate(['/component/sav']); // Rediriger après mise à jour
+          console.log('SAV updated successfully:', updatedSav);
+          this.router.navigate(['/component/sav']); // Redirect after update
         },
         error => {
           console.error('Erreur lors de la mise à jour du SAV :', error);

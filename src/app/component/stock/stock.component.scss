@@ -9,10 +9,11 @@ $font-family: 'Arial, sans-serif';
 $padding: 16px;
 $border-radius: 4px;
 
+// Container styling
 .container {
   text-align: center;
   margin-bottom: $padding;
-  position: relative; // Ensure this is set for button positioning
+  position: relative; // Position for the button
 
   h2 {
     color: $primary-color;
@@ -20,6 +21,7 @@ $border-radius: 4px;
     margin-bottom: $padding / 2;
   }
 
+  // Add Stock Button styling
   .btn-add-stock {
     background-color: $primary-color;
     color: #fff;
@@ -29,14 +31,14 @@ $border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-    position: absolute; // Position absolutely within the container
-    right: $padding; // Distance from the right edge
-    top: $padding; // Adjust this value to place the button higher
-    transform: translateY(0); // Remove any vertical centering
+    position: absolute;
+    right: $padding; // Adjust this for better positioning
+    top: $padding;  // Adjust vertical position
+    z-index: 10;  // Ensure button stays above other elements
 
     &:hover {
       background-color: $hover-color;
-      transform: translateY(-2px) scale(1.05); // Add slight scaling effect on hover
+      transform: translateY(-2px) scale(1.05); // Scaling effect on hover
     }
 
     &:focus {
@@ -46,6 +48,7 @@ $border-radius: 4px;
   }
 }
 
+// Table Styling
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -59,24 +62,28 @@ $border-radius: 4px;
       padding: $padding / 2;
       text-align: left;
       font-weight: normal;
+      text-transform: uppercase;
+      font-size: 0.875rem;
     }
   }
 
   tbody {
     tr {
       &:nth-child(odd) {
-        background-color: #f9f9f9;
+        background-color: #f9f9f9; // Light grey for odd rows
       }
 
       &:hover {
         background-color: $hover-color;
-        color: #fff;
+        color: #fff; // White text on hover
       }
 
       td {
         padding: $padding / 2;
         border: 1px solid $table-border-color;
         color: $font-color;
+        font-size: 0.875rem;
+        vertical-align: middle;
 
         .action-buttons {
           display: flex;
@@ -88,7 +95,12 @@ $border-radius: 4px;
             border-radius: $border-radius;
             cursor: pointer;
             font-family: $font-family;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 0.875rem; // Consistent button size
+
+            &:hover {
+              transform: translateY(-2px); // Subtle lift effect
+            }
 
             &.btn-update {
               background-color: $primary-color;

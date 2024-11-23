@@ -1,7 +1,7 @@
 export class Stock {
   idProduit?: number;
   numSerie!: string;
-  IMEI!: number;
+  imei!: string;
   dateProduction!: Date;
   categorie!: string;
 }

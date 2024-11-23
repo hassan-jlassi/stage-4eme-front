@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Stock } from '../../_models/stock'; // Ensure the path to the Stock model is correct
-import { StockService } from '../../_services/stock.service'; // Ensure the path to the Stock service is correct
+import { Stock } from '../../_models/stock'; // Assurez-vous que le chemin vers le modèle Stock est correct
+import { StockService } from '../../_services/stock.service'; // Assurez-vous que le chemin vers le service Stock est correct
 
 @Component({
   selector: 'app-stock',
@@ -10,6 +10,7 @@ import { StockService } from '../../_services/stock.service'; // Ensure the path
 })
 export class StockComponent implements OnInit {
   stocks: Stock[] = [];
+  stockCount: number = 0; // Variable pour stocker le nombre de stocks
 
   constructor(private stockService: StockService, private router: Router) { }
 
@@ -21,6 +22,7 @@ export class StockComponent implements OnInit {
     this.stockService.getAllStocks().subscribe(
       stocks => {
         this.stocks = stocks;
+        this.stockCount = this.stocks.length; // Mise à jour du nombre de stocks
       },
       error => {
         console.error('Error loading stocks:', error);
@@ -37,6 +39,7 @@ export class StockComponent implements OnInit {
       this.stockService.deleteStock(id).subscribe(
         () => {
           this.stocks = this.stocks.filter(stock => stock.idProduit !== id);
+          this.stockCount = this.stocks.length; // Mise à jour du nombre de stocks après suppression
         },
         error => {
           console.error('Error deleting stock:', error);
@@ -49,6 +52,7 @@ export class StockComponent implements OnInit {
     this.stockService.createStock(newStock).subscribe(
       createdStock => {
         this.stocks.push(createdStock);
+        this.stockCount = this.stocks.length; // Mise à jour du nombre de stocks après création
       },
       error => {
         console.error('Error creating stock:', error);
@@ -57,6 +61,6 @@ export class StockComponent implements OnInit {
   }
 
   editStock(stock: Stock) {
-    this.router.navigate(['/update-stock', stock.idProduit]); // Adjust the URL based on your routing setup
+    this.router.navigate(['/update-stock', stock.idProduit]); // Ajustez l'URL en fonction de votre configuration de routage
   }
 }

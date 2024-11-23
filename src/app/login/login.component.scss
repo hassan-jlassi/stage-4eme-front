@@ -1,95 +1,137 @@
-// Variables for customization
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$danger-color: #dc3545;
-$border-radius: 0.25rem;
-$padding: 1rem;
-$font-family: 'Arial', sans-serif;
-$input-border-color: #ced4da;
-$input-focus-color: $primary-color;
-$invalid-feedback-color: $danger-color;
+:root {
+  --background: #000000; /* Couleur de fond noire */
+  --color: #ffffff; /* Couleur du texte en blanc */
+  --primary-color: #0f3460; /* Couleur primaire */
+}
 
-// Global styles
-body {
-  font-family: $font-family;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
 }
-
-// Form styles
-form {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: $padding;
-  background-color: #fff;
-  border-radius: $border-radius;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-
-  .form-group {
-    margin-bottom: 1.5rem;
-
-    label {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    input.form-control {
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid $input-border-color;
-      border-radius: $border-radius;
-      transition: border-color 0.3s ease-in-out;
-
-      &:focus {
-        border-color: $input-focus-color;
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba($input-focus-color, 0.25);
-      }
-
-      &.ng-invalid.ng-touched {
-        border-color: $invalid-feedback-color;
-      }
-    }
-
-    .invalid-feedback {
-      color: $invalid-feedback-color;
-      font-size: 0.875rem;
-      display: block;
-      margin-top: 0.5rem;
-    }
-  }
+.login-page {
+  background-color: #e8a85f; // Choisir une nouvelle couleur de fond pour la page d'inscription
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background); /* Utiliser un fond noir ici */
+  color: var(--color); /* Couleur du texte en blanc */
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease;
 }
 
-// Button styles
-button.btn {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: $border-radius;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+a {
+  text-decoration: none;
+  color: var(--color);
+}
 
-  &.btn-primary {
-    background-color: $primary-color;
-    border: none;
-    color: #fff;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background); /* Appliquer le fond noir ici aussi */
+}
 
-    &:hover {
-      background-color: darken($primary-color, 10%);
-      transform: translateY(-2px);
-    }
-  }
+.login-container {
+  background-color: rgba(232, 168, 95, 0.75);
+  position: relative;
+  width: 22.2rem;
+}
 
-  &.btn-secondary {
-    background-color: $secondary-color;
-    border: none;
-    color: #fff;
+.form-container {
+  border: 1px solid hsla(0, 56%, 44%, 0.16);
+  box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  padding: 2rem;
+}
 
-    &:hover {
-      background-color: darken($secondary-color, 10%);
-      transform: translateY(-2px);
-    }
-  }
+.login-container form input {
+  display: block;
+  padding: 14.5px;
+  width: 100%;
+  margin: 2rem 0;
+  color: var(--color);
+  outline: none;
+  background-color: rgba(183, 23, 23, 0.12);
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  backdrop-filter: blur(15px);
+}
+
+.login-container form input:focus {
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+}
+
+.login-container form button {
+  background-color: #0c0c0c;
+  color: #c3d3e1;
+  padding: 13px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.1s ease-in-out;
+  border: none;
+}
+
+.login-container form button:hover {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.circle {
+  width: 8rem;
+  height: 8rem;
+  background: var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.circle-one {
+  top: 0;
+  left: 0;
+  transform: translate(-45%, -45%);
+}
+
+.circle-two {
+  bottom: 0;
+  right: 0;
+  transform: translate(45%, 45%);
+}
+
+.illustration {
+  position: absolute;
+  top: -14%;
+  right: -2px;
+  width: 90%;
+}
+
+.register-forget {
+  background-color: #0c0c0c;
+  color: #c3d3e1;
+  padding: 13px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.1s ease-in-out;
+  border: none;
+  text-align: center;
+}
+
+
+.opacity {
+  opacity: 0.6;
 }

@@ -1,42 +1,49 @@
 <div class="container">
-  <h2 class="center">Mettre à jour un SAV</h2>
-  <br>
+  <h2 class="text-center mb-4">Mettre à jour un SAV</h2>
+
   <form [formGroup]="updateSavForm" (ngSubmit)="updateSav()" class="form-container">
+    <!-- Numéro de Série Field -->
     <div class="form-group">
-      <label>Numéro de Série:</label>
-      <input type="text" class="form-control" formControlName="numSerie">
-      <div *ngIf="updateSavForm.controls['numSerie'].invalid && updateSavForm.controls['numSerie'].touched" class="alert alert-danger">
-        <p *ngIf="updateSavForm.controls['numSerie'].hasError('required')">Numéro de Série requis</p>
-        <p *ngIf="updateSavForm.controls['numSerie'].hasError('minlength')">Numéro de Série doit contenir au moins 3 caractères</p>
+      <label for="numSerie">Numéro de Série:</label>
+      <input type="text" id="numSerie" class="form-control" formControlName="numSerie" placeholder="Entrez le numéro de série">
+      <div *ngIf="updateSavForm.get('numSerie')?.invalid && updateSavForm.get('numSerie')?.touched" class="alert alert-danger mt-1">
+        <small *ngIf="updateSavForm.get('numSerie')?.hasError('required')">Numéro de Série requis</small>
+        <small *ngIf="updateSavForm.get('numSerie')?.hasError('minlength')">Numéro de Série doit contenir au moins 3 caractères</small>
       </div>
     </div>
 
+    <!-- IMEI Field -->
     <div class="form-group">
-      <label>IMEI:</label>
-      <input type="text" class="form-control" formControlName="IMEI">
-      <div *ngIf="updateSavForm.controls['IMEI'].invalid && updateSavForm.controls['IMEI'].touched" class="alert alert-danger">
-        <p *ngIf="updateSavForm.controls['IMEI'].hasError('required')">IMEI requis</p>
-        <p *ngIf="updateSavForm.controls['IMEI'].hasError('pattern')">IMEI doit être un nombre</p>
+      <label for="imei">IMEI:</label>
+      <input type="text" id="imei" class="form-control" formControlName="imei" placeholder="Entrez le IMEI">
+      <div *ngIf="updateSavForm.get('imei')?.invalid && updateSavForm.get('imei')?.touched" class="alert alert-danger mt-1">
+        <small *ngIf="updateSavForm.get('imei')?.hasError('required')">IMEI requis</small>
+        <small *ngIf="updateSavForm.get('imei')?.hasError('pattern')">IMEI doit être un nombre de 15 chiffres</small>
       </div>
     </div>
 
+    <!-- Date de Réception Field -->
     <div class="form-group">
-      <label>Date de Réception:</label>
-      <input type="date" class="form-control" formControlName="dateReception">
-      <div *ngIf="updateSavForm.controls['dateReception'].invalid && updateSavForm.controls['dateReception'].touched" class="alert alert-danger">
-        <p *ngIf="updateSavForm.controls['dateReception'].hasError('required')">Date de Réception requise</p>
+      <label for="dateReception">Date de Réception:</label>
+      <input type="date" id="dateReception" class="form-control" formControlName="dateReception">
+      <div *ngIf="updateSavForm.get('dateReception')?.invalid && updateSavForm.get('dateReception')?.touched" class="alert alert-danger mt-1">
+        <small *ngIf="updateSavForm.get('dateReception')?.hasError('required')">Date de Réception requise</small>
       </div>
     </div>
 
+    <!-- Catégorie Field -->
     <div class="form-group">
-      <label>Catégorie:</label>
-      <input type="text" class="form-control" formControlName="categorie">
-      <div *ngIf="updateSavForm.controls['categorie'].invalid && updateSavForm.controls['categorie'].touched" class="alert alert-danger">
-        <p *ngIf="updateSavForm.controls['categorie'].hasError('required')">Catégorie requise</p>
+      <label for="categorie">Catégorie:</label>
+      <input type="text" id="categorie" class="form-control" formControlName="categorie" placeholder="Entrez la catégorie">
+      <div *ngIf="updateSavForm.get('categorie')?.invalid && updateSavForm.get('categorie')?.touched" class="alert alert-danger mt-1">
+        <small *ngIf="updateSavForm.get('categorie')?.hasError('required')">Catégorie requise</small>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary center" [disabled]="updateSavForm.invalid">Mettre à jour SAV</button>
-    <button type="button" class="btn btn-secondary center" (click)="resetForm()">Réinitialiser</button>
+    <!-- Action Buttons -->
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-primary" [disabled]="updateSavForm.invalid">Mettre à jour SAV</button>
+      <button type="button" class="btn btn-secondary ml-2" (click)="resetForm()">Réinitialiser</button>
+    </div>
   </form>
 </div>

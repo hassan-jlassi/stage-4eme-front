@@ -1,9 +1,9 @@
-// Variables for customization
-$sidebar-bg: #2f3d4a;
+// Variables pour personnalisation
+$sidebar-bg: #f2f4f6;
 $sidebar-item-bg: #1e2a38;
 $sidebar-item-active-bg: #1a2631;
 $sidebar-item-hover-bg: #37474f;
-$sidebar-text-color: #ffffff;
+$sidebar-text-color: #1070d0;
 $sidebar-icon-color: #b0bec5;
 $upgrade-btn-bg: #e53935;
 $upgrade-btn-text-color: #ffffff;
@@ -18,8 +18,8 @@ $transition-duration: 0.3s;
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px; // Adjust as needed
-  background-color: $sidebar-bg;
+  width: 250px; // Ajuster si nécessaire
+  background-color: $sidebar-bg !important; // Appliquer la couleur de fond
   color: $sidebar-text-color;
   overflow-y: auto;
   z-index: 1000;
@@ -96,7 +96,7 @@ $transition-duration: 0.3s;
   }
 }
 
-// Mobile and tablet view adjustments (Optional)
+// Ajustements pour les vues mobiles et tablettes (facultatif)
 @media (max-width: 768px) {
   .sidebar-nav {
     width: 100%;

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTES } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, NavigationEnd } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,34 +10,30 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SidebarComponent implements OnInit {
   showMenu = '';
-  showSubMenu = '';
   public sidebarnavItems: RouteInfo[] = [];
-  showSidebar = true; // Control the sidebar visibility
+  showSidebar = true;
 
-  constructor(
-    private modalService: NgbModal,
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
 
-    // Listen to router events to check the current route
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
+        // Listen to route change to control the sidebar visibility
         this.showSidebar = !this.isAuthPage(event.urlAfterRedirects);
       }
     });
   }
 
   private isAuthPage(url: string): boolean {
-    // Adjust the condition based on your authentication routes
+    // Hide sidebar on login or signup page
     return url === '/login' || url === '/inscription';
   }
 
   addExpandClass(element: string) {
     if (element === this.showMenu) {
-      this.showMenu = '0';
+      this.showMenu = '';
     } else {
       this.showMenu = element;
     }

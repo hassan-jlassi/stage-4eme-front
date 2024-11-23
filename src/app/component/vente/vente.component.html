@@ -1,7 +1,9 @@
 <div class="container">
   <h2>Ventes</h2>
-  <!-- Add Button to navigate to the addvente page -->
-  <button class="btn btn-primary btn-add-vente" [routerLink]="['/component/addvente']"> + </button>
+  <!-- Bouton d'ajout avec icône -->
+  <button class="btn btn-primary btn-add-vente" [routerLink]="['/component/addvente']">
+    <i class="bi bi-plus-circle"></i> <!-- Icône d'ajout -->
+  </button>
   <table class="table">
     <thead>
     <tr>
@@ -20,8 +22,14 @@
       <td>{{ vente.client }}</td>
       <td>
         <div class="action-buttons">
-          <button class="btn btn-update" [routerLink]="['/component/updatevente', vente.idVente]">Update</button>
-          <button class="btn btn-delete" (click)="deleteVente(vente.idVente!)">Delete</button>
+          <!-- Bouton de mise à jour avec icône -->
+          <button class="btn btn-update" [routerLink]="['/component/updatevente', vente.idVente]">
+            <i class="bi bi-pencil"></i> <!-- Icône de mise à jour -->
+          </button>
+          <!-- Bouton de suppression avec icône -->
+          <button class="btn btn-delete" (click)="deleteVente(vente.idVente!)">
+            <i class="bi bi-trash"></i> <!-- Icône de suppression -->
+          </button>
         </div>
       </td>
     </tr>

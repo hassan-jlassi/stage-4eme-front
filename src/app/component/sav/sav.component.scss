@@ -61,6 +61,7 @@ body {
       padding: $padding / 2;
       text-align: left;
       font-weight: normal;
+      font-size: 0.875rem; // Taille de police réduite
     }
   }
 
@@ -79,6 +80,7 @@ body {
         padding: $padding / 2;
         border: 1px solid $table-border-color;
         color: $font-color;
+        font-size: 0.875rem;
 
         .action-buttons {
           display: flex;
@@ -90,6 +92,7 @@ body {
             border-radius: $border-radius;
             cursor: pointer;
             font-family: $font-family;
+            font-size: 0.875rem; // Taille de police réduite pour les boutons
             transition: background-color 0.3s ease;
 
             &.btn-update {

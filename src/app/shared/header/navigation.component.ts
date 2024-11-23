@@ -1,24 +1,31 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { Router, ActivatedRoute } from '@angular/router';  // Importer les services nécessaires
 
 declare var $: any;
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html'
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements AfterViewInit {
   @Output() toggleSidebar = new EventEmitter<void>();
 
   public config: PerfectScrollbarConfigInterface = {};
-
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) {
+  public isLoginPage: boolean = false;  // Variable pour vérifier si on est sur la page login
+
+  constructor(private modalService: NgbModal, private router: Router, private activatedRoute: ActivatedRoute) {
+    // Vérifie si le chemin actuel est '/login' pour déterminer si l'en-tête doit être affiché
+    this.router.events.subscribe(() => {
+      this.isLoginPage = this.router.url === '/login';  // Si l'URL est /login, l'en-tête ne sera pas affiché
+    });
   }
 
-  // This is for Notifications
+  // Notifications (comme dans votre code original)
   notifications: Object[] = [
     {
       btn: 'btn-danger',
@@ -50,7 +57,7 @@ export class NavigationComponent implements AfterViewInit {
     }
   ];
 
-  // This is for Mymessages
+  // Mymessages (comme dans votre code original)
   mymessages: Object[] = [
     {
       useravatar: 'assets/images/users/user1.jpg',
@@ -89,27 +96,29 @@ export class NavigationComponent implements AfterViewInit {
     icon: 'us'
   }
 
-  public languages: any[] = [{
-    language: 'English',
-    code: 'en',
-    type: 'US',
-    icon: 'us'
-  },
-  {
-    language: 'Español',
-    code: 'es',
-    icon: 'es'
-  },
-  {
-    language: 'Français',
-    code: 'fr',
-    icon: 'fr'
-  },
-  {
-    language: 'German',
-    code: 'de',
-    icon: 'de'
-  }]
+  public languages: any[] = [
+    {
+      language: 'English',
+      code: 'en',
+      type: 'US',
+      icon: 'us'
+    },
+    {
+      language: 'Español',
+      code: 'es',
+      icon: 'es'
+    },
+    {
+      language: 'Français',
+      code: 'fr',
+      icon: 'fr'
+    },
+    {
+      language: 'German',
+      code: 'de',
+      icon: 'de'
+    }
+  ];
 
   ngAfterViewInit() { }
 }
